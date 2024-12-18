@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+Add additional Tailwind styles to this file, for example with @layer:
+https://tailwindcss.com/docs/adding-custom-styles#using-css-and-layer
+*/
+
+/* Fonts */
+:root {
+	--sl-font: Lexend Variable;
+	@apply font-light;
+}
+
+:root {
+	--sl-sidebar-width: 15rem;
+	--sl-content-width: 55rem;
+}
+
+nav:has(#starlight__on-this-page) ul li {
+	@apply text-balance;
+}
+
+h1 {
+	@apply text-center xl:text-start font-bold
+}
+
+
+.sl-markdown-content {
+	@apply md:px-6 xl:px-0
+}
+
+.content-panel {
+	@apply !border-none
+}
+
+.starlight-aside {
+	@apply rounded-lg
+}
+
+.hero img {
+	@apply rounded-xl
+}
+
+/* Dark mode colors. */
+:root {
+	--sl-color-accent-low: theme('colors.neutral.800');
+	--sl-color-accent: #ecd557;
+	--sl-color-accent-high: #eee2a0;
+	--sl-color-white: #ffffff;
+	--sl-color-gray-1: theme('colors.neutral.50');
+	--sl-color-gray-2: theme('colors.neutral.200');
+	--sl-color-gray-3: theme('colors.neutral.500');
+	--sl-color-gray-4: theme('colors.neutral.600');
+	--sl-color-gray-5: theme('colors.neutral.800');
+	--sl-color-gray-6: theme('colors.neutral.900');
+	--sl-color-black: theme('colors.neutral.950');
+}
+/* Light mode colors. */
+:root[data-theme='light'] {
+	--sl-color-accent-low: #eee2a0;
+	--sl-color-accent: #ecd557;
+	--sl-color-accent-high: theme('colors.neutral.950');
+	--sl-color-white: theme('colors.neutral.950');
+	--sl-color-gray-1: theme('colors.neutral.950');
+	--sl-color-gray-2: theme('colors.neutral.900');
+	--sl-color-gray-3: theme('colors.neutral.800');
+	--sl-color-gray-4: theme('colors.neutral.600');
+	--sl-color-gray-5: theme('colors.neutral.500');
+	--sl-color-gray-6: theme('colors.neutral.200');
+	--sl-color-gray-7: theme('colors.neutral.50');
+	--sl-color-black: #ffffff;
+}
+
+
+/* Twemoji */
+img.emoji {
+	margin: 0 .05em 0 .1em !important;
+	vertical-align: -0.1em;
+
+	@apply inline-flex h-[1.2em] w-[1.2em];
+ }
+
+#command img.emoji {
+	@apply align-super h-5 w-5;
+}
+
+#option img.emoji {
+	@apply !my-auto;
+}
+
+/* markdown */
+code {
+	@apply rounded-sm
+}
+
+/* heading link styling */
+.heading-link::after {
+	@apply opacity-0 ps-2 transition-all duration-300 content-['#'] text-[color:var(--sl-color-text-accent)];
+}
+
+.heading-link:hover::after {
+	@apply opacity-100;
+}
+
+.heading-link {
+	@apply no-underline !text-[color:var(--sl-color-white)];
+}
